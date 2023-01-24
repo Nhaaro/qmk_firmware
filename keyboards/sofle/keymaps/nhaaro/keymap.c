@@ -181,7 +181,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* ADJUST
  * ,-----------------------------------------------.                    ,-----------------------------------------------.
- * |EEP_RST|       |       |       |       |       |                    |       |       |       |       |       |       |
+ * |EEP CLR|       |       |       |       |       |                    |       |       |       |       |       |       |
  * |-------+-------+-------+-------+-------+-------|                    |-------+-------+-------+-------+-------+-------|
  * |QK_MAKE|QK_BOOT|DB_TOGG| QK_RBT|       |       |                    |       |       |       |       |       |       |
  * |-------+-------+-------+-------+-------+-------|                    |-------+-------+-------+-------+-------+-------|
@@ -195,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
             [_ADJUST] = LAYOUT(
               //,-----------------------------------------------------.                   ,-----------------------------------------------------.
-                  EEP_RST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+                  EE_CLR , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
                   QK_MAKE, QK_BOOT, DB_TOGG, QK_RBT , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
@@ -213,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-------+-------+-------+-------+-------+-------|                    |-------+-------+-------+-------+-------+-------|
  * |colemak|       | qwerty|       |       |  adj  |                    | numpad|       |       |       |       |QK_BOOT|
  * |-------+-------+-------+-------+-------+-------|                    |-------+-------+-------+-------+-------+-------|
- * | WinMac|       |       |       |       |       |-------.    ,-------|       |       |       |       |       |EEP_RST|
+ * | WinMac|       |       |       |       |       |-------.    ,-------|       |       |       |       |       |EEP CLR|
  * |-------+-------+-------+-------+-------+-------|       |    |       |-------+-------+-------+-------+-------+-------|
  * | SLEEP | WAKE  |       |       |       |       |-------|    |-------|       |       |       |       |       |       |
  * `-----------------------------------------------/      /      \      \-----------------------------------------------'
@@ -227,7 +227,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
           TO(_COLEMAK),XXXXXXX,TO(_GAMING),XXXXXXX,XXXXXXX,TO(_ADJUST),                 TO(_NUMPAD), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
-                  AG_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, EEP_RST,
+                  AG_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, EE_CLR ,
               //|--------+--------+--------+--------+--------+--------|  ===  |   |  ===  |--------+--------+--------+--------+--------+--------|
                   KC_SLEP, KC_WAKE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|  ===  |   |  ===  |--------+--------+--------+--------+--------+--------|
@@ -251,7 +251,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
             [_NUMPAD] = LAYOUT(
               //,-----------------------------------------------------.                   ,-----------------------------------------------------.
-                  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     _______, KC_NLCK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+                  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     _______, KC_NUM , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     KC_CIRC, KC_P7  , KC_P8  , KC_P9  , KC_PAST, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
@@ -288,7 +288,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               //|--------+--------+--------+--------+--------+--------|  ===  |   |  ===  |--------+--------+--------+--------+--------+--------|
                   KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,KC_MUTE,    KC_DISC, KC_N   , KC_M   , KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
               //|--------+--------+--------+--------+--------+--------|  ===  |   |  ===  |--------+--------+--------+--------+--------+--------|
-                                  KC_LCTL ,KC_LALT , KC_SPC , KC_SPC , KC_ENT ,     KC_SPC , KC_ENT ,TG(_GAMING),KC_RCTRL, KC_ALGR
+                                  KC_LCTL ,KC_LALT , KC_SPC , KC_SPC , KC_ENT ,     KC_SPC , KC_ENT ,TG(_GAMING),KC_RCTL,KC_ALGR
               //                 \--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------/
             ),
 
@@ -443,7 +443,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             case _GAMING:
             case _COLEMAK:
                 if (clockwise) {
-                    tap_code(KC_PGDOWN);
+                    tap_code(KC_PGDN);
                 } else {
                     tap_code(KC_PGUP);
                 }
