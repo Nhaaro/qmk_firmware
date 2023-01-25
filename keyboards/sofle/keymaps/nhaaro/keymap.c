@@ -1,4 +1,4 @@
-// vim: sw=2:sts=2:expandtab
+// vim: sw=4:sts=4:expandtab
 
  /* Copyright 2021 Dane Evans
   *
