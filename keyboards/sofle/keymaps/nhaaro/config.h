@@ -50,7 +50,6 @@
 
 #ifdef RGB_MATRIX_ENABLE
 #define RGBLED_NUM 35    // Number of LEDs
-#define RGBLED_NUM 35    // Number of LEDs
 #define DRIVER_LED_TOTAL RGBLED_NUM
 #endif
 

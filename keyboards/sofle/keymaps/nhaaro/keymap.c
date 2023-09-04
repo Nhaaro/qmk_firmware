@@ -388,9 +388,9 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     layer_switcher_lights  // Overrides other layers
 );
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(_COLEMAK, layer_state_cmp(state, _DEFAULTS) && layer_state_cmp(default_layer_state,_COLEMAK));
-    rgblight_set_layer_state(_GAMING , layer_state_cmp(state, _DEFAULTS) && layer_state_cmp(default_layer_state,_GAMING));
+layer_state_t rgblight_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(_COLEMAK,  layer_state_cmp(default_layer_state,_COLEMAK));
+    rgblight_set_layer_state(_GAMING ,  layer_state_cmp(default_layer_state,_GAMING));
 
 
     rgblight_set_layer_state(_LOWER , layer_state_cmp(state, _LOWER));
@@ -398,6 +398,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(_ADJUST, layer_state_cmp(state, _ADJUST));
     rgblight_set_layer_state(_NUMPAD, layer_state_cmp(state, _NUMPAD));
     rgblight_set_layer_state(_SWITCH, layer_state_cmp(state, _SWITCH));
+
     return state;
 }
 
@@ -465,6 +466,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
     return true;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_layer_state_set_user(state);
+
+    return state;
 }
 
 #ifdef ENCODER_ENABLE
