@@ -337,28 +337,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 char layer_state_str[70];
 // Now define the array of layers. Later layers take precedence
 
-// QWERTY,
+// Defaults,
 // Light on inner column and underglow
-const rgblight_segment_t PROGMEM layer_qwerty_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-    SET_LAYER_ID(HSV_RED)
-);
 const rgblight_segment_t PROGMEM layer_colemakdh_lights[] = RGBLIGHT_LAYER_SEGMENTS(
     SET_LAYER_ID(HSV_WHITE)
 );
+const rgblight_segment_t PROGMEM layer_gaming_lights[] = RGBLIGHT_LAYER_SEGMENTS(
+    SET_LAYER_ID(HSV_RED)
+);
 
-// _NUMBERS,
+// _LOWER,
 // Light on outer column and underglow
-const rgblight_segment_t PROGMEM layer_num_lights[] = RGBLIGHT_LAYER_SEGMENTS(
+const rgblight_segment_t PROGMEM layer_lower_lights[] = RGBLIGHT_LAYER_SEGMENTS(
     SET_LAYER_ID(HSV_TEAL)
 );
-// _SYMBOL,
+// _RAISE,
 // Light on inner column and underglow
-const rgblight_segment_t PROGMEM layer_symbol_lights[] = RGBLIGHT_LAYER_SEGMENTS(
+const rgblight_segment_t PROGMEM layer_raise_lights[] = RGBLIGHT_LAYER_SEGMENTS(
     SET_LAYER_ID(HSV_BLUE)
 );
-// _COMMAND,
+// _ADJUST,
 // Light on inner column and underglow
-const rgblight_segment_t PROGMEM layer_command_lights[] = RGBLIGHT_LAYER_SEGMENTS(
+const rgblight_segment_t PROGMEM layer_adjust_lights[] = RGBLIGHT_LAYER_SEGMENTS(
     SET_LAYER_ID(HSV_PURPLE)
 );
 
@@ -379,23 +379,25 @@ const rgblight_segment_t PROGMEM layer_switcher_lights[] = RGBLIGHT_LAYER_SEGMEN
 );
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    layer_colemakdh_lights,
-    layer_qwerty_lights,
-    layer_num_lights,// overrides layer 1
-    layer_symbol_lights,
-    layer_command_lights,
-    layer_numpad_lights,
-    layer_switcher_lights  // Overrides other layers
+    /* _COLEMAK */ layer_colemakdh_lights,
+    /* _GAMING  */ layer_gaming_lights,
+
+    /* _LOWER   */ layer_lower_lights,
+    /* _RAISE   */ layer_raise_lights,
+    /* _ADJUST  */ layer_adjust_lights,
+
+    /* _NUMPAD  */ layer_numpad_lights,
+    /* _SWITCH  */ layer_switcher_lights
 );
 
 layer_state_t rgblight_layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(_COLEMAK, layer_state_cmp(state, _COLEMAK) || layer_state_cmp(state, _CHAT));
     rgblight_set_layer_state(_GAMING , layer_state_cmp(state, _GAMING));
 
-
     rgblight_set_layer_state(_LOWER , layer_state_cmp(state, _LOWER));
     rgblight_set_layer_state(_RAISE , layer_state_cmp(state, _RAISE));
     rgblight_set_layer_state(_ADJUST, layer_state_cmp(state, _ADJUST));
+
     rgblight_set_layer_state(_NUMPAD, layer_state_cmp(state, _NUMPAD));
     rgblight_set_layer_state(_SWITCH, layer_state_cmp(state, _SWITCH));
 
