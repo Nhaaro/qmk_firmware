@@ -389,8 +389,8 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 );
 
 layer_state_t rgblight_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(_COLEMAK,  layer_state_cmp(default_layer_state,_COLEMAK));
-    rgblight_set_layer_state(_GAMING ,  layer_state_cmp(default_layer_state,_GAMING));
+    rgblight_set_layer_state(_COLEMAK, layer_state_cmp(state, _COLEMAK) || layer_state_cmp(state, _CHAT));
+    rgblight_set_layer_state(_GAMING , layer_state_cmp(state, _GAMING));
 
 
     rgblight_set_layer_state(_LOWER , layer_state_cmp(state, _LOWER));
