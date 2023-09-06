@@ -387,11 +387,13 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     /* _ADJUST  */ layer_adjust_lights,
 
     /* _NUMPAD  */ layer_numpad_lights,
-    /* _SWITCH  */ layer_switcher_lights
+    /* _SWITCH  */ layer_switcher_lights,
+
+    /* _CHAT    */ layer_colemakdh_lights
 );
 
 layer_state_t rgblight_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(_COLEMAK, layer_state_cmp(state, _COLEMAK) || layer_state_cmp(state, _CHAT));
+    rgblight_set_layer_state(_COLEMAK, layer_state_cmp(state, _COLEMAK));
     rgblight_set_layer_state(_GAMING , layer_state_cmp(state, _GAMING));
 
     rgblight_set_layer_state(_LOWER , layer_state_cmp(state, _LOWER));
@@ -400,6 +402,8 @@ layer_state_t rgblight_layer_state_set_user(layer_state_t state) {
 
     rgblight_set_layer_state(_NUMPAD, layer_state_cmp(state, _NUMPAD));
     rgblight_set_layer_state(_SWITCH, layer_state_cmp(state, _SWITCH));
+
+    rgblight_set_layer_state(_CHAT, layer_state_cmp(state, _CHAT));
 
     return state;
 }
