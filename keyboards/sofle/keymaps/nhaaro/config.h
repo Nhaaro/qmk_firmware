@@ -37,7 +37,18 @@
     #undef TAPPING_TERM
     #define TAPPING_TERM 150
 #endif
-#define ENCODER_DIRECTION_FLIP
+
+#ifdef ENCODER_ENABLE
+  // EC11K encoders have a different resolution than other EC11 encoders.
+  // When using the default resolution of 4, if you notice your encoder skipping
+  // every other tick, lower the resolution to 2.
+  #ifdef ENCODER_RESOLUTION
+    #undef ENCODER_RESOLUTION
+  #endif
+  #define ENCODER_RESOLUTION 4
+  // Also, flip direction
+  #define ENCODER_DIRECTION_FLIP
+#endif
 
 
 #define RGBLIGHT_SLEEP
