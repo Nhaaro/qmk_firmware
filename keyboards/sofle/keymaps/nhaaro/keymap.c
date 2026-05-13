@@ -177,7 +177,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               //,-----------------------------------------------------.                   ,-----------------------------------------------------.
                   EE_CLR , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
-                  QK_MAKE, QK_BOOT, DB_TOGG, QK_RBT , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                  QK_MAKE, QK_BOOT, DBG_TOG, QK_RBT , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
                   RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,          C(G(KC_LEFT)), XXXXXXX, XXXXXXX,C(G(KC_RGHT)), XXXXXXX, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|  ===  |   |  ===  |--------+--------+--------+--------+--------+--------|
