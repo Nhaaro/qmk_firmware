@@ -15,7 +15,7 @@ enum layers {
 };
 
 enum custom_keycodes {
-    KC_COLEMAK = SAFE_RANGE,
+    KC_COLEMAK = QK_USER,
     KC_GAMING,
     KC_LOWER,
     KC_RAISE,
