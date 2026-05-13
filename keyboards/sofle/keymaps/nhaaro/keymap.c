@@ -391,7 +391,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_COLEMAK:
             if (record->event.pressed) {
                 layer_move(_COLEMAK);
-                set_single_persistent_default_layer(_COLEMAK);
+                set_default_layer(_COLEMAK);
             }
             return false;
         case KC_GAMING:
