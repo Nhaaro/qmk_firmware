@@ -454,10 +454,13 @@ bool process_detected_host_os_user(os_variant_t os) {
     switch (os) {
         case OS_MACOS:
         case OS_IOS:
-            set_oneshot_mods(MOD_LGUI | MOD_LALT);
+            keymap_config.swap_lalt_lgui = true;
+            keymap_config.swap_ralt_rgui = true;
             break;
         case OS_WINDOWS:
         case OS_LINUX:
+            keymap_config.swap_lalt_lgui = false;
+            keymap_config.swap_ralt_rgui = false;
             break;
         default:
             break;
