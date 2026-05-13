@@ -363,17 +363,17 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 );
 
 layer_state_t rgblight_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(_COLEMAK, layer_state_cmp(state, _COLEMAK));
-    rgblight_set_layer_state(_GAMING , layer_state_cmp(state, _GAMING));
+    rgblight_set_layer_state(_COLEMAK, layer_state_get(state, _COLEMAK));
+    rgblight_set_layer_state(_GAMING , layer_state_get(state, _GAMING));
 
-    rgblight_set_layer_state(_LOWER , layer_state_cmp(state, _LOWER));
-    rgblight_set_layer_state(_RAISE , layer_state_cmp(state, _RAISE));
-    rgblight_set_layer_state(_ADJUST, layer_state_cmp(state, _ADJUST));
+    rgblight_set_layer_state(_LOWER , layer_state_get(state, _LOWER));
+    rgblight_set_layer_state(_RAISE , layer_state_get(state, _RAISE));
+    rgblight_set_layer_state(_ADJUST, layer_state_get(state, _ADJUST));
 
-    rgblight_set_layer_state(_NUMPAD, layer_state_cmp(state, _NUMPAD));
-    rgblight_set_layer_state(_SWITCH, layer_state_cmp(state, _SWITCH));
+    rgblight_set_layer_state(_NUMPAD, layer_state_get(state, _NUMPAD));
+    rgblight_set_layer_state(_SWITCH, layer_state_get(state, _SWITCH));
 
-    rgblight_set_layer_state(_CHAT, layer_state_cmp(state, _CHAT));
+    rgblight_set_layer_state(_CHAT, layer_state_get(state, _CHAT));
 
     return state;
 }
