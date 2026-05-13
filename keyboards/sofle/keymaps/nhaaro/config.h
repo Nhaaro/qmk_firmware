@@ -31,6 +31,7 @@
 
 #define CUSTOM_LAYER_READ //if you remove this it causes issues - needs better guarding
 
+#define OS_DETECTION_KEYBOARD_RESET
 
 #define TAPPING_FORCE_HOLD
 #ifdef TAPPING_TERM

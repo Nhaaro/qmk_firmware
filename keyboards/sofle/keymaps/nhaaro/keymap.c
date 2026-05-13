@@ -450,3 +450,18 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
+bool process_detected_host_os_user(os_variant_t os) {
+    switch (os) {
+        case OS_MACOS:
+        case OS_IOS:
+            set_oneshot_mods(MOD_LGUI | MOD_LALT);
+            break;
+        case OS_WINDOWS:
+        case OS_LINUX:
+            break;
+        default:
+            break;
+    }
+    return true;
+}
+
