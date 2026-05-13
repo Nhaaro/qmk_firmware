@@ -65,8 +65,6 @@
 #endif
 
 #ifdef RGBLIGHT_ENABLE
-    #undef RGBLED_NUM
-
     //#define RGBLIGHT_ANIMATIONS
 	//#define RGBLIGHT_EFFECT_BREATHING
 	#define RGBLIGHT_EFFECT_RAINBOW_MOOD
@@ -79,11 +77,6 @@
 	//#define RGBLIGHT_EFFECT_ALTERNATING
 	//#define RGBLIGHT_EFFECT_TWINKLE
 
-    #define RGBLED_NUM 70
-	//#define RGBLED_SPLIT
-	#define RGBLED_SPLIT { 35, 35 } // haven't figured out how to use this yet
-
-	//#define RGBLED_NUM 30
     #define RGBLIGHT_LIMIT_VAL 120
     #define RGBLIGHT_HUE_STEP 10
     #define RGBLIGHT_SAT_STEP 17

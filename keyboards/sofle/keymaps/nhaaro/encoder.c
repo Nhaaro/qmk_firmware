@@ -33,16 +33,16 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             case _RAISE:
             case _LOWER:
                 if (clockwise) {
-                    tap_code(KC_MS_WH_DOWN);
+                    tap_code(KC_VOLD);
                 } else {
-                    tap_code(KC_MS_WH_UP);
+                    tap_code(KC_VOLU);
                 }
                 break;
             default:
                 if (clockwise) {
-                    tap_code(KC_WH_D);
+                    tap_code(KC_PGDN);
                 } else {
-                    tap_code(KC_WH_U);
+                    tap_code(KC_PGUP);
                 }
                 break;
         }

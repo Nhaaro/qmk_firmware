@@ -173,15 +173,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                |      |      |       |       |/      /          \      \|       |       |      |      |
  *                `-----------------------------'------'            '------'-----------------------------'
  */
-            [_ADJUST] = LAYOUT(
+[_ADJUST] = LAYOUT(
               //,-----------------------------------------------------.                   ,-----------------------------------------------------.
                   QK_CLEAR_EEPROM , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
-                  QK_BOOTLOADER, QK_BOOT, DBG_TOG, QK_RBT , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                  QK_BOOT, QK_BOOT, XXXXXXX, QK_RBT , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|                   |--------+--------+--------+--------+--------+--------|
-                  RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,          C(G(KC_LEFT)), XXXXXXX, XXXXXXX,C(G(KC_RGHT)), XXXXXXX, XXXXXXX,
+                  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          C(G(KC_LEFT)), XXXXXXX, XXXXXXX,C(G(KC_RGHT)), XXXXXXX, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|  ===  |   |  ===  |--------+--------+--------+--------+--------+--------|
-                  RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,XXXXXXX,    XXXXXXX, KC_MSTP, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
+                  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,    XXXXXXX, KC_MSTP, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
               //|--------+--------+--------+--------+--------+--------|  ===  |   |  ===  |--------+--------+--------+--------+--------+--------|
                                   _______ ,_______ , _______, _______, _______,    _______ , _______, _______, _______, _______
               //                 \--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------/
@@ -363,17 +363,17 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 );
 
 layer_state_t rgblight_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(_COLEMAK, layer_state_get(state, _COLEMAK));
-    rgblight_set_layer_state(_GAMING , layer_state_get(state, _GAMING));
+    rgblight_set_layer_state(_COLEMAK, IS_LAYER_ON_STATE(state, _COLEMAK));
+    rgblight_set_layer_state(_GAMING , IS_LAYER_ON_STATE(state, _GAMING));
 
-    rgblight_set_layer_state(_LOWER , layer_state_get(state, _LOWER));
-    rgblight_set_layer_state(_RAISE , layer_state_get(state, _RAISE));
-    rgblight_set_layer_state(_ADJUST, layer_state_get(state, _ADJUST));
+    rgblight_set_layer_state(_LOWER , IS_LAYER_ON_STATE(state, _LOWER));
+    rgblight_set_layer_state(_RAISE , IS_LAYER_ON_STATE(state, _RAISE));
+    rgblight_set_layer_state(_ADJUST, IS_LAYER_ON_STATE(state, _ADJUST));
 
-    rgblight_set_layer_state(_NUMPAD, layer_state_get(state, _NUMPAD));
-    rgblight_set_layer_state(_SWITCH, layer_state_get(state, _SWITCH));
+    rgblight_set_layer_state(_NUMPAD, IS_LAYER_ON_STATE(state, _NUMPAD));
+    rgblight_set_layer_state(_SWITCH, IS_LAYER_ON_STATE(state, _SWITCH));
 
-    rgblight_set_layer_state(_CHAT, layer_state_get(state, _CHAT));
+    rgblight_set_layer_state(_CHAT, IS_LAYER_ON_STATE(state, _CHAT));
 
     return state;
 }
@@ -391,7 +391,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_COLEMAK:
             if (record->event.pressed) {
                 layer_move(_COLEMAK);
-                set_default_layer(_COLEMAK);
+                set_single_default_layer(_COLEMAK);
             }
             return false;
         case KC_GAMING:
