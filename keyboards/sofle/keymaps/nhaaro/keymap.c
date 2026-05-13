@@ -19,6 +19,7 @@
 #include <stdio.h>
 
 #include QMK_KEYBOARD_H
+#include "enums.h"
 
 #define INDICATOR_BRIGHTNESS 31
 
@@ -63,37 +64,6 @@
     {25, 2, hsv}, \
     {35+ 25, 2, hsv}
 
-
-enum layers {
-    _DEFAULTS = 0,
-    _COLEMAK = 0,
-    _GAMING,
-
-    _LOWER,
-    _RAISE,
-    _ADJUST,
-
-    _NUMPAD,
-    _SWITCH,
-
-    _CHAT,
-};
-
-enum custom_keycodes {
-    KC_COLEMAK = SAFE_RANGE,
-    KC_GAMING,
-    KC_LOWER,
-    KC_RAISE,
-    KC_ADJUST,
-
-    KC_DISC,
-    KC_CHAT
-};
-
-enum encoders {
-    EN_LEFT,
-    EN_RIGHT
-};
 
 #define OSFT OSM(MOD_LSFT)
 #define OGUI OSM(MOD_LGUI)
@@ -480,52 +450,3 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-#ifdef ENCODER_ENABLE
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == EN_LEFT) {
-        switch (get_highest_layer(layer_state)) {
-            case _SWITCH:
-                if (clockwise) {
-                    tap_code(KC_BRIU);
-                } else {
-                    tap_code(KC_BRID);
-                }
-                break;
-            default:
-                if (clockwise) {
-                    tap_code(KC_VOLU);
-                } else {
-                    tap_code(KC_VOLD);
-                }
-                break;
-        }
-    } else if (index == EN_RIGHT) {
-        switch (get_highest_layer(layer_state)) {
-            case _GAMING:
-            case _COLEMAK:
-                if (clockwise) {
-                    tap_code(KC_PGDN);
-                } else {
-                    tap_code(KC_PGUP);
-                }
-                break;
-            case _RAISE:
-            case _LOWER:
-                if (clockwise) {
-                    tap_code(KC_DOWN);
-                } else {
-                    tap_code(KC_UP);
-                }
-                break;
-            default:
-                if (clockwise) {
-                    tap_code(KC_WH_D);
-                } else {
-                    tap_code(KC_WH_U);
-                }
-                break;
-        }
-    }
-    return true;
-}
-#endif

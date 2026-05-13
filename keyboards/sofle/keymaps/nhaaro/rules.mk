@@ -1,6 +1,6 @@
 EXTRAKEY_ENABLE = yes
 
-MOUSEKEY_ENABLE = no
+MOUSEKEY_ENABLE = yes
 
 CONSOLE_ENABLE = yes
 
@@ -12,3 +12,5 @@ LTO_ENABLE = yes
 
 OLED_ENABLE = no
 OLED_DRIVER = SSD1306
+
+SRC += ./encoder.c
